@@ -1,0 +1,20 @@
+.Hidden{
+    display:none;
+}
+
+.Table{
+    border-width: 2px;
+    border:solid;
+}
+
+#create-class{
+    display:none;
+}
+
+#edit-category-values{
+    display:none;
+}
+
+#new-projection-div{
+    display:none;
+}

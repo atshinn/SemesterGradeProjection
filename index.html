@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Grade Projector</title>
+        <!-- <link href="style.css" rel="stylesheet"> -->
+    </head>
+
+    <body>
+        <div id="div-mainview" class="Display">
+            <h2>Schedule</h2>
+            <table id="schedule-table"class="Table">
+                <tr id="schedule-table-headers">
+                    <th>Class</th>
+                </tr>
+            </table>
+        </div>
+        
+        <div id="div-mainview-buttons" class="Control" style="display:block">
+            <button id="but-newprojection" class="button" onclick="new_projection_listener()" disabled="true">New Projection</button>
+            <button id="but-newschedule" class="button" onclick="new_schedule()">New Schedule</button>
+        </div>
+
+        <div id="new-projection-div" style="display:none">
+            <form>
+                <label>Class: </label>
+                <selection id="class-selection" name="Class">
+
+                </selection>
+                <br>
+                
+                <label>Category: </label>                
+                <selection id="grade-category" name="Grading Category">
+
+                </selection>
+                <br>
+                
+                <input id="new-projection-values" type="text" value="enter future grades in comma separated list" onclick="clear_input_text()">
+                <br>
+                
+                <div id="div-newprojection-control"class="Control">
+                    <input type="button" value="Test" onclick="new_projection()">
+                    <input id="save-entry-cb"type="checkbox" value="Save">
+                    <label for="sav-entry-cb">Save the Projection</label>                    
+                </div>
+                
+            </form>
+        </div>
+        
+        <div id="create-class" style="display:none">
+            <form>
+                <h3>New Class</h3>
+                <label for="class-name">Class Name:</label>
+                <input id="class-name" class="textbox" type="text"><br>
+
+                <label for="category">Category:</label>
+                <select id="selection" class="selection" required="true" multiple>
+                    <option value="Final">Final</option>
+                    <option value="Mid-Term">MidTerm</option>
+                    <option value="Quizzes">Quizzes</option>
+                    <option value="Tests">Tests</option>
+                    <option value="In-Class">In-Class</option>
+                    <option value="Attendence">Attendance</option>
+                    <option value="Participation">Participation</option>
+                    <option value="Homework">Homework</option>
+                    <option value="Extra Credit">Extra Credit</option>
+                    <option value="labs">Labs</option>
+                    <option value="Project">Projects</option>
+                </select>
+                    
+                <input id="add-cat-button" class="schedule-btn" type="button" onclick="add_category()" value ="Add">
+                <input id="undo-cat-but" class="schedule-btn" type="button" value="Undo" disabled="true" onclick="undo_cat()">
+                <input id="enter-cat-values-but" class="schedule-btn" type="button" value="Next" onclick="edit_class()">
+                <br>
+                <p id="selected-cats">Categories: </p>
+            </form>
+        </div>
+        
+        <div id="edit-category-values" style="display:none">
+            <p>here</p>
+            <form>    
+                <table id='cat-table' class="Table">
+                    
+                </table>
+                <br>
+                <input id="finish-class-addition" type="button" value="Finish" onclick="finish_class_addition()">
+                <input id="add-another-class" type="button" value="Add Another" onclick="add_another_class()">
+            </form>
+        </div>
+                
+        
+        <script src="gradeprojection.js" type="text/javascript"></script>
+    </body>
+</html>
